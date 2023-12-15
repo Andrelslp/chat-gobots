@@ -15,7 +15,7 @@ export default function PrivateChat({
   const userName = params.personsName.slice(7);
 
   return (
-    <div className="bg-white-1 flex h-full flex-col">
+    <div className="flex h-full flex-col bg-white-1">
       <Header />
       <div className="flex h-full w-full flex-row">
         <LeftSidebar userName={userName} setContact={setContact} />

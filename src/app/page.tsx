@@ -36,7 +36,7 @@ export default function Home() {
       <Header />
       <main className="content-area flex flex-col items-center justify-center">
         <Container>
-          <h1 className="text-white-1 flex h-full items-center justify-center p-10 px-32 text-4xl">
+          <h1 className="flex h-full items-center justify-center p-10 px-32 text-4xl text-white-1">
             Seja bem-vindo, entre com um nickname:
           </h1>
 

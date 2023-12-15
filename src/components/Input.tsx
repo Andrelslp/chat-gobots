@@ -21,18 +21,18 @@ export default function InputSubmit({
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-dark-2 flex justify-between rounded-xl"
+      className="flex justify-between rounded-xl bg-dark-2"
     >
       <input
         type="text"
         placeholder={placeholder}
         onChange={(event) => setInput(event.target.value)}
         value={input}
-        className="bg-dark-2 text-white-1 h-20 w-full rounded-2xl px-4 py-1 text-3xl"
+        className="h-20 w-full rounded-2xl bg-dark-2 px-4 py-1 text-3xl text-white-1"
       />
       <button
         type="submit"
-        className="bg-dark-1 hover:bg-green-opacity-1 rounded-bl-[64px] rounded-br-[9px] rounded-tr-[10px] px-8"
+        className="hover:bg-green-opacity-1 rounded-bl-[64px] rounded-br-[9px] rounded-tr-[10px] bg-dark-1 px-8"
       >
         <BsSend className="text-dark-2 hover:text-white-1" size={34} />
       </button>

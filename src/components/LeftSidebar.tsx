@@ -5,7 +5,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 
 function SearchBar() {
   return (
-    <div className="bg-dark-2 item-center flex h-16 w-full gap-3 py-3 pl-5">
+    <div className="item-center flex h-16 w-full gap-3 bg-dark-2 py-3 pl-5">
       <div className="flex w-full flex-grow items-center gap-5 rounded-lg px-3 py-1">
         <div>
           <BiSearchAlt2 className="text-panel-header-icon text-white-1" />
@@ -14,7 +14,7 @@ function SearchBar() {
           <input
             type="text"
             placeholder="Pesquisar ou começar uma nova conversa"
-            className="text-white-1 w-full bg-transparent text-sm focus:outline-none"
+            className="w-full bg-transparent text-sm text-white-1 focus:outline-none"
           />
         </div>
       </div>
@@ -36,7 +36,7 @@ function ContactList({
   );
 
   return (
-    <div className="bg-dark-4 flex flex-col overflow-y-auto">
+    <div className="flex flex-col overflow-y-auto bg-dark-4">
       {contactList.map((item) => (
         <>
           <div
@@ -46,7 +46,7 @@ function ContactList({
             <button
               type="button"
               onClick={() => setContact(item.name || '')}
-              className="text-white-1 flex h-full items-center justify-start pl-6"
+              className="flex h-full items-center justify-start pl-6 text-white-1"
             >
               {item.name}
             </button>
@@ -66,7 +66,7 @@ export default function LeftSidebar({
   setContact: (data: string) => void;
 }) {
   return (
-    <div className="flex-coll bg-dark-4 h-full w-1/4">
+    <div className="flex-coll h-full w-1/4 bg-dark-4">
       <SearchBar />
       <ContactList userName={userName} setContact={setContact} />
     </div>
