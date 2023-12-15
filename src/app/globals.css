@@ -2,26 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    font-size: 60%;
+  }
+
+  @media (min-width: 700px) {
+    :root {
+      font-size: 62.5%;
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
+  body,
+  html {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  body {
+    background: theme('colors.dark-4');
+    color: theme('colors.dark-2');
+    -webkit-font-smoothing: antialiased;
+    
+    overflow-x: hidden;
+  }
+
+  body,
+  input,
+  button,
+  textarea,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  strong {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  body,
+  input,
+  button,
+  textarea,
+  strong {
+    font-size: 1.6rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong {
+    font-weight: 500;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .content-area {
+    height: calc(100vh - theme(spacing.40));
+  }
 }
