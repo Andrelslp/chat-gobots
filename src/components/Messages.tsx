@@ -9,7 +9,7 @@ import MessageBar from './MessageBar';
 
 function ChatHeader({ contact }: { contact: string }) {
   return (
-    <div className="item-center bg-dark-5 flex h-16 justify-between px-4 py-3 text-white-1">
+    <div className="item-center flex h-[70px] justify-between bg-dark-5 px-4 py-3 text-white-1">
       <div className="flex items-center justify-center gap-6">
         <span>{contact}</span>
       </div>
