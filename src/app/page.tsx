@@ -19,7 +19,7 @@ export default function Home() {
         (item) => item.name.toLowerCase() === inputValue.toLowerCase()
       );
 
-      if (findName) return console.error('Este nickname já está cadastrado!');
+      if (findName) return router.push(`/chat/name=${inputValue}`);
     }
 
     const newUser: IUserDataProps = {
