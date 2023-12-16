@@ -9,7 +9,7 @@ import MessageBar from './MessageBar';
 
 function ChatHeader({ contact }: { contact: string }) {
   return (
-    <div className="item-center flex h-16 justify-between bg-dark-1 px-4 py-3">
+    <div className="item-center bg-dark-5 flex h-16 justify-between px-4 py-3 text-white-1">
       <div className="flex items-center justify-center gap-6">
         <span>{contact}</span>
       </div>
@@ -105,10 +105,10 @@ function ChatMessages({
   }, [messages]);
 
   return (
-    <div className="content-area flex w-full flex-col items-center justify-center">
+    <div className="flex h-full w-full flex-col items-center justify-center">
       <div
         ref={messageContainer}
-        className="flex h-[60rem] w-full flex-col overflow-auto px-5 pt-14"
+        className="flex h-full w-full flex-col overflow-auto px-5 pt-14"
       >
         {messages.map((message) => (
           <Message
@@ -134,7 +134,7 @@ export default function Messages({
   contact: string;
 }) {
   return (
-    <div className="border-1 z-10 flex w-full flex-col overflow-y-auto bg-dark-2">
+    <div className="border-1 justify-beetween flex h-full w-full flex-col overflow-y-auto bg-dark-2">
       {!contact ? (
         <div className="flex h-full flex-col items-center justify-center gap-4 text-white-1">
           <Logo />

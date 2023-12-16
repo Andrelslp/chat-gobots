@@ -5,7 +5,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 
 function SearchBar() {
   return (
-    <div className="item-center flex h-16 w-full gap-3 bg-dark-2 py-3 pl-5">
+    <div className="item-center bg-dark-5 flex h-16 w-full gap-3 py-3 pl-5">
       <div className="flex w-full flex-grow items-center gap-5 rounded-lg px-3 py-1">
         <div>
           <BiSearchAlt2 className="text-panel-header-icon text-white-1" />
@@ -36,13 +36,10 @@ function ContactList({
   );
 
   return (
-    <div className="flex flex-col overflow-y-auto bg-dark-4">
+    <div className="bg-dark-8 flex flex-col overflow-y-auto">
       {contactList.map((item) => (
-        <>
-          <div
-            key={item.id}
-            className="flex h-[4.5rem] flex-col justify-center"
-          >
+        <div key={item.id}>
+          <div className="flex h-[4.5rem] flex-col justify-center">
             <button
               type="button"
               onClick={() => setContact(item.name || '')}
@@ -52,7 +49,7 @@ function ContactList({
             </button>
           </div>
           <hr />
-        </>
+        </div>
       ))}
     </div>
   );
@@ -66,7 +63,7 @@ export default function LeftSidebar({
   setContact: (data: string) => void;
 }) {
   return (
-    <div className="flex-coll h-full w-1/4 bg-dark-4">
+    <div className="flex-coll bg-dark-8 h-full w-1/4">
       <SearchBar />
       <ContactList userName={userName} setContact={setContact} />
     </div>
