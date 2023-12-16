@@ -11,6 +11,7 @@ export default function Home() {
   const router = useRouter();
 
   const handleSubmit = (inputValue: string) => {
+    const channel = new BroadcastChannel('contactListChannel');
     const registeredUsers: IUserDataProps[] = loginService.getUsers();
 
     // Checks if the user is already registered in the system
@@ -29,6 +30,10 @@ export default function Home() {
 
     loginService.postUser(registeredUsers, newUser);
     router.push(`/chat/name=${inputValue}`);
+
+    // Emits the 'storage' event to other tabs/windows
+    window.dispatchEvent(new Event('storageContactList'));
+    channel.postMessage('update');
   };
 
   return (

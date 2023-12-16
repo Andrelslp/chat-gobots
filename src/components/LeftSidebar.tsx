@@ -1,6 +1,7 @@
 // 'use client';
 
 import loginService, { IUserDataProps } from '@/services/loginService';
+import { useEffect, useState } from 'react';
 
 function UserProfile({ userName }: { userName: string }) {
   return (
@@ -19,15 +20,34 @@ function ContactList({
   userName: string;
   setContact: (data: string) => void;
 }) {
-  const registeredUsers: IUserDataProps[] = loginService.getUsers();
+  const [list, setList] = useState<IUserDataProps[]>([]);
 
-  const contactList = registeredUsers.filter(
-    (item) => item.name.toLowerCase() !== userName.toLowerCase()
-  );
+  useEffect(() => {
+    const registeredUsers: IUserDataProps[] = loginService.getUsers();
+
+    const contactList = registeredUsers.filter(
+      (item) => item.name.toLowerCase() !== userName.toLowerCase()
+    );
+
+    setList(contactList);
+  }, []);
+
+  const channel = new BroadcastChannel('contactListChannel');
+
+  // Receive the event in a different window to update the message history
+  channel.onmessage = () => {
+    const registeredUsers: IUserDataProps[] = loginService.getUsers();
+
+    const contactList = registeredUsers.filter(
+      (item) => item.name.toLowerCase() !== userName.toLowerCase()
+    );
+
+    setList(contactList);
+  };
 
   return (
     <div className="flex flex-col overflow-y-auto bg-dark-8">
-      {contactList.map((item) => (
+      {list.map((item) => (
         <div key={item.id}>
           <div className="flex h-[4.5rem] flex-col justify-center">
             <button
