@@ -37,11 +37,11 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Header />
-      <main className="content-area flex flex-col items-center justify-center">
-        <Container>
-          <h1 className="flex h-full items-center justify-center p-10 px-32 text-4xl text-white-1">
+      <main className="h-full w-full flex flex-col items-center justify-center px-4">
+        <Container className="m-4">
+          <h1 className="flex h-full items-center justify-center sm:py-10 py-6 px-4 text-4xl text-white-1">
             Seja bem-vindo, entre com um nickname:
           </h1>
 
@@ -51,6 +51,6 @@ export default function Home() {
           />
         </Container>
       </main>
-    </>
+    </div>
   );
 }

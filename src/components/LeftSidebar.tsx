@@ -73,7 +73,7 @@ export default function LeftSidebar({
   setContact: (data: string) => void;
 }) {
   return (
-    <div className="flex-coll h-full w-1/4 bg-dark-8">
+    <div className="flex-coll h-full sm:w-1/4 w-full bg-dark-8">
       <UserProfile userName={userName} />
       <ContactList userName={userName} setContact={setContact} />
     </div>

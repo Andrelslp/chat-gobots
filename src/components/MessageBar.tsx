@@ -7,15 +7,18 @@ import { MdSend } from 'react-icons/md';
 interface IInputSubmitProps {
   onSubmit: (value: string) => void;
   placeholder: string;
+  showEmojiPicker: boolean;
+  setShowEmojiPicker: (data: boolean) => void;
 }
 
 export default function MessageBar({
   onSubmit,
-  placeholder
+  placeholder,
+  showEmojiPicker,
+  setShowEmojiPicker
 }: IInputSubmitProps) {
   const [input, setInput] = useState('');
   const [inputEmoji, setInputEmoji] = useState('');
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [emojiList, setEmojiList] = useState<IEmojiProps[]>([]);
 
   const getEmojiList = async () => {
@@ -47,11 +50,11 @@ export default function MessageBar({
   };
 
   return (
-    <>
+    <div>
       {showEmojiPicker && (
-        <div className="bg-dark-5 flex w-full flex-col gap-4 p-3">
+        <div className="w-full flex flex-col gap-4 p-3 bg-dark-5">
           <input
-            className="bg-dark-6 w-full rounded-2xl px-4 py-3.5 text-2xl text-white-1"
+            className="w-full rounded-2xl px-4 py-3.5 text-2xl text-white-1 bg-dark-6"
             type="text"
             placeholder="Pesquisar emoji"
             onChange={(event) => {
@@ -61,6 +64,7 @@ export default function MessageBar({
             }}
             value={inputEmoji}
           />
+
           <div className="flex h-56 overflow-y-scroll">
             <ul className="flex flex-wrap">
               {Array.isArray(emojiList) &&
@@ -80,10 +84,10 @@ export default function MessageBar({
 
       <form
         onSubmit={handleSubmit}
-        className="bg-dark-5 flex h-20 w-full items-center gap-6 p-6"
+        className="h-20 w-full flex items-center gap-6 p-6 bg-dark-5 "
       >
         <div
-          className="cursor-pointer rounded-full bg-dark-1 p-3"
+          className="cursor-pointer rounded-full p-3 bg-dark-1"
           onClick={handleEmojiModal}
         >
           <BsEmojiSmile
@@ -109,6 +113,6 @@ export default function MessageBar({
           />
         </button>
       </form>
-    </>
+    </div>
   );
 }

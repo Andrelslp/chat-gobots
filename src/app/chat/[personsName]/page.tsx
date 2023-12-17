@@ -15,12 +15,29 @@ export default function PrivateChat({
   const userName = params.personsName.slice(7);
 
   return (
-    <div className="flex h-full flex-col bg-white-1">
+    <div className="h-screen max-h-screen flex flex-col">
       <Header />
-      <div className="flex h-full w-full flex-row">
+
+      <main className="h-full w-full flex flex-row hidden sm:flex">
         <LeftSidebar userName={userName} setContact={setContact} />
-        <Messages userName={userName} contact={contact} />
-      </div>
+        <Messages
+          userName={userName}
+          contact={contact}
+          setContact={setContact}
+        />
+      </main>
+
+      <main className="h-full w-full flex flex-row sm:hidden">
+        {!contact ? (
+          <LeftSidebar userName={userName} setContact={setContact} />
+        ) : (
+          <Messages
+            userName={userName}
+            contact={contact}
+            setContact={setContact}
+          />
+        )}
+      </main>
     </div>
   );
 }

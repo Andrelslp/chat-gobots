@@ -6,11 +6,21 @@ import chatHistoryService, {
   IMessageDataProps
 } from '@/services/chatHistoryService';
 import MessageBar from './MessageBar';
+import { BiArrowBack } from 'react-icons/bi';
 
-function ChatHeader({ contact }: { contact: string }) {
+function ChatHeader({
+  contact,
+  setContact
+}: {
+  contact: string;
+  setContact: (data: string) => void;
+}) {
   return (
-    <div className="item-center flex h-[70px] justify-between bg-dark-5 px-4 py-3 text-white-1">
-      <div className="flex items-center justify-center gap-6">
+    <div className="h-[70px] flex item-center justify-between px-4 py-3 bg-dark-5 text-white-1">
+      <div className="flex items-center justify-center gap-2">
+        <span className="sm:hidden" onClick={() => setContact('')}>
+          <BiArrowBack />
+        </span>
         <span>{contact}</span>
       </div>
     </div>
@@ -104,11 +114,18 @@ function ChatMessages({
     );
   }, [messages]);
 
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
+    <div className="h-full flex flex-col justify-between">
       <div
         ref={messageContainer}
-        className="flex h-full w-full flex-col overflow-auto px-5 pt-14"
+        className="w-full flex flex-col overflow-y-auto"
+        style={{
+          height: !showEmojiPicker
+            ? 'calc(100vh - 220px )'
+            : 'calc(100vh - 522px )'
+        }}
       >
         {messages.map((message) => (
           <Message
@@ -118,9 +135,12 @@ function ChatMessages({
           />
         ))}
       </div>
+
       <MessageBar
         onSubmit={handleSubmit}
         placeholder="Digite sua mensagem aqui"
+        showEmojiPicker={showEmojiPicker}
+        setShowEmojiPicker={setShowEmojiPicker}
       />
     </div>
   );
@@ -128,13 +148,15 @@ function ChatMessages({
 
 export default function Messages({
   userName,
-  contact
+  contact,
+  setContact
 }: {
   userName: string;
   contact: string;
+  setContact: (data: string) => void;
 }) {
   return (
-    <div className="border-1 justify-beetween flex h-full w-full flex-col overflow-y-auto bg-dark-2">
+    <div className="h-full w-full flex flex-col justify-between bg-dark-2">
       {!contact ? (
         <div className="flex h-full flex-col items-center justify-center gap-4 text-white-1">
           <Logo />
@@ -142,7 +164,7 @@ export default function Messages({
         </div>
       ) : (
         <>
-          <ChatHeader contact={contact} />
+          <ChatHeader contact={contact} setContact={setContact} />
           <ChatMessages userName={userName} contact={contact} />
         </>
       )}
