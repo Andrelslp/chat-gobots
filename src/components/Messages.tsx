@@ -120,7 +120,7 @@ function ChatMessages({
     <div className="h-full flex flex-col justify-between">
       <div
         ref={messageContainer}
-        className="w-full flex flex-col overflow-y-auto"
+        className="flex flex-col overflow-y-auto"
         style={{
           height: !showEmojiPicker
             ? 'calc(100vh - 220px )'
@@ -131,6 +131,7 @@ function ChatMessages({
           <Message
             key={message.id}
             message={message.text}
+            date={message.date}
             isOwner={message.isOwner}
           />
         ))}
@@ -156,7 +157,11 @@ export default function Messages({
   setContact: (data: string) => void;
 }) {
   return (
-    <div className="h-full w-full flex flex-col justify-between bg-dark-2">
+    <div
+      className={`h-full w-full flex flex-col justify-between ${
+        !contact ? 'bg-dark-2' : 'bg-dark-4'
+      }`}
+    >
       {!contact ? (
         <div className="flex h-full flex-col items-center justify-center gap-4 text-white-1">
           <Logo />

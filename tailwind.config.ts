@@ -19,6 +19,7 @@ const config: Config = {
       'blue-1': '#0F70B7',
       'blue-2': '#0B5285',
       'blue-3': '#2599ed',
+      'green-1': '#005C4B',
       'white-1': '#FFFFFF',
       transparent: 'transparent'
     },
