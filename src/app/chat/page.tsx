@@ -1,10 +1,14 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
 export default function Chat() {
-  return (
-    <div>
-      <span>
-        Envie e receba mensagens através de um mesmo navegador. Pode ser através
-        de de abas ou janelas diferentes.
-      </span>
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    return router.push('/');
+  }, []);
+
+  return <div></div>;
 }
