@@ -74,6 +74,14 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: theme('colors.dark-3');
+}
+
 @layer utilities {
   .content-area {
     height: calc(100vh - theme(spacing.40));
