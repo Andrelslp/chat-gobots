@@ -21,6 +21,7 @@ const config: Config = {
       'blue-3': '#2599ed',
       'green-1': '#005C4B',
       'white-1': '#FFFFFF',
+      'red-1': '#FFD700',
       transparent: 'transparent'
     },
     fontFamily: {

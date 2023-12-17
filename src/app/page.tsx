@@ -50,6 +50,7 @@ export default function Home() {
             placeholder="Digite seu nome aqui..."
           />
         </Container>
+        <span className="text-red-1">*O nickname não pode conter acentos</span>
       </main>
     </div>
   );
