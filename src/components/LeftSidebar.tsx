@@ -53,7 +53,7 @@ function ContactList({
             <button
               type="button"
               onClick={() => setContact(item.name || '')}
-              className="flex h-full items-center justify-start pl-6 text-white-1"
+              className="flex h-full items-center justify-start pl-6 text-white-1 hover:bg-dark-5"
             >
               {item.name}
             </button>
