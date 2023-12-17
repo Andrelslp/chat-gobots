@@ -41,6 +41,8 @@ function ChatMessages({
   // Handles sending messages
   const handleSubmit = (inputValue: string) => {
     if (inputValue) {
+      const chatHistory: IMessageDataProps[] = chatHistoryService.getMessages();
+
       const date = `${new Date().toLocaleString()}`;
 
       const newMessage = {
@@ -58,9 +60,7 @@ function ChatMessages({
       ]);
 
       // Updates history in Local Storage
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const chatWithoutIsOwner = messages.map(({ isOwner, ...rest }) => rest);
-      chatHistoryService.postMessage(chatWithoutIsOwner, newMessage);
+      chatHistoryService.postMessage(chatHistory, newMessage);
 
       // Emits the 'storage' event to other tabs/windows
       window.dispatchEvent(new Event('storage'));
