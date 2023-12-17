@@ -18,6 +18,10 @@ ChatGoBots is a real-time chat application designed to facilitate communication 
 
 - **User-Friendly Navigation:** Clicking on the logo returns users to the login screen, offering a convenient way to navigate the application.
 
+## Deploy Version
+
+You can access the deployed version of the application at [https://chatgobots.vercel.app/](https://chatgobots.vercel.app/). Feel free to use the link directly on your computer or mobile device to start chatting!
+
 ## Getting Started
 
 To run the project locally, follow these steps:
